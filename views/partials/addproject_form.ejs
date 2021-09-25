@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <h1> Charicha Add Project </h1>
+    <form class="form">
+      <!-- action="/addproject" method="post"> -->
+      <div class="form-group">
+	<label for="projectName"> Project Name </label>
+	<input class="form-control" name="projectName" type="text" value=""/>
+	<small class="form-text text-muted"> Name of the Project </small>
+      </div>
+      <div class="form-group">
+	<label for="projectDesc"> Project Description </label>
+	<textarea class="form-control" name="projectDesc" type="text" rows="6"></textarea>
+	<small class="form-text text-muted"> Description of the Project </small>
+      </div>
+      <div class="row">
+	<div class="form-group col-6">
+	  <label for="projectDesc"> Project Budget </label>
+	  <input class="form-control" name="projectBudget" type="number" value=""/>
+	  <small class="form-text text-muted"> Budget of the Project (Rs) </small>
+	</div>
+	<div class="form-group col-6">
+	  <label for="projectDesc"> Efforts Needed (Working Hr.) </label>
+	  <!-- this will be select option later with only selected members -->
+	  <input class="form-control" name="projectEffortsNeeded" type="number" value=""/>
+	  <small class="form-text text-muted"> Approximate Working hours needed to complete the project </small>
+	</div>
+      </div>
+      <div class="form-group">
+	<label for="projectManager"> Project Manager </label>
+	<select class="form-select" name="projectManager">
+	  <!-- <option selected>Select Project Manager </option> ?? -->
+	</select>
+	<small class="form-text text-muted"> Who will handle the Project? </small>
+      </div>
+      <div class="form-group">
+	<select class="form-select form-select-sm" size="3" multiple name="projectMembers">
+	</select>
+	<small class="form-text text-muted"> All Members who will be working in this project.</small>	
+      </div>
+      <div class="row">
+	<div class="form-group col-6">
+	  <label for="projectStart"> Starting Date </label>
+	  <input class="form-control" name="projectStart" type="date" value=""/>
+	  <small class="form-text text-muted"> Start of the Project </small>
+	</div>
+	<div class="form-group col-6">
+	  <label for="projectEnd"> Deadline Date </label>
+	  <input class="form-control" name="projectEnd" type="date" value=""/>
+	  <small class="form-text text-muted"> Deadline of the Project </small>
+	</div>
+      </div>
+      <div class="form-group">
+	<input class="form-control btn-primary" id="buttonAddProject" type="button" value="Add Project"/>
+      </div>
+  </div>
+    </form>
+</div>

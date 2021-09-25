@@ -1,0 +1,93 @@
+<script> var data = <%- JSON.stringify(data); %> </script>
+<script src="../js/project.js"></script>
+
+<!-- Project Dashboard -->
+<div class="container-fluid mx-4">
+
+  <!-- Page Heading -->
+  <div class="align-items-center justify-content-between mb-4">
+    <h1 class="my-12 text-4xl text-indigo-800 uppercase font-bold"><%=data.proj.name%> > Dashboard</h1>
+    <a href="#" class="px-4 py-2 bg-indigo-500 text-white rounded-md shadow-md">
+      <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+    </a>
+  </div>
+
+  <!-- Content Row -->
+  <div class="flex flex-wrap max-w-full mx-auto justify-between">
+
+    <!-- budget -->
+    <div class="w-full sm:flex-none sm:w-72 border-b-2 border-green-600 shadow-lg rounded-md py-2 px-6 mr-2 mb-2">
+      <div class="font-bold text-green-500 uppercase" >
+        Project Budget </div>
+      <hr class="mb-2"/>
+      <div class="flex justify-between items-center">
+	<div class="h5 mb-0 font-bold text-green-400" id="projectBudget">Rs. 40,000</div>
+	<i class="fas fa-dollar-sign text-xl inline-block align-middle text-green-400"></i>
+      </div>
+    </div>
+    <!-- budget -->
+
+    <!-- Project Deadline -->
+    <div class="w-full sm:flex-none sm:w-72 border-b-2 border-red-600 shadow-lg rounded-md py-2 px-6 lg:mr-2 mb-2">
+      <div class="font-bold text-red-500 uppercase" >
+        Project Deadline </div>
+      <hr class="mb-2"/>
+      <div class="flex justify-between items-center">
+	<div class="h5 mb-0 font-bold text-red-400" id="projectDeadline">12 July 2021</div>
+	<i class="fas fa-calendar text-xl inline-block align-middle text-red-400"></i>
+      </div>
+    </div>
+    <!-- Project Deadline -->
+
+    <!-- Project Progress -->
+    <div class="w-full sm:flex-none sm:w-72 border-b-2 border-blue-600 shadow-lg rounded-md py-2 px-6 mr-2 mb-2">
+      <div class="font-bold text-blue-500 uppercase" >
+        Project Progress </div>
+      <hr class="mb-2"/>
+      <div class="flex justify-between items-center">
+	<div class="h5 mb-0 font-bold text-blue-500" id="projectProgress">20%</div>
+	<div class="progress progress-sm mr-2">
+	  <!-- Change color of progress dynamically   -->
+	  <div class="progress-bar bg-info" role="progressbar"
+	       style="width: 20%" aria-valuenow="50" aria-valuemin="0"
+	       id="projectProgressBar"
+	       aria-valuemax="100"></div>
+	</div>
+	<i class="fas fa-clipboard-list text-xl inline-block align-middle text-blue-500"></i>
+      </div>
+    </div>
+    <!-- Project Progress -->
+
+    <!-- Project Pending -->
+    <div class="w-full sm:flex-none sm:w-72 border-b-2 border-yellow-600 shadow-lg rounded-md py-2 px-6 mb-2">
+      <div class="font-bold text-yellow-500 uppercase" >
+        Pending Requests </div>
+      <hr class="mb-2"/>
+      <div class="flex justify-between items-center">
+	<div class="h5 mb-0 font-bold text-yellow-400" id="projectPending"> 18 </div>
+	<i class="fas fa-comments text-xl inline-block align-middle text-yellow-400"></i>
+      </div>
+    </div>
+    <!-- Project Pending -->
+
+  </div> <!-- content row -->
+
+  <hr class="border-b-1 border-indigo-300 my-8"/>
+
+  <div class="container-fluid flex justify-between flex-wrap">
+    <%- include("../partials/areachart.ejs") %>
+    <%- include("../partials/piechart.ejs") %>
+  </div>
+
+  <hr class="border-b-1 border-indigo-300 my-8"/>
+
+  <%- include("../partials/task_manager.ejs") %>
+
+
+
+</div>
+
+
+
+
+<hr class="border-b-1 border-indigo-300 my-12"/>

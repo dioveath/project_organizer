@@ -1,0 +1,43 @@
+<script src="../js/dashboard.js" defer></script>
+
+<div class="container">
+  <div>
+    <h1 class="text-4xl text-center m-4">Dashboard</h1>
+    <h2 class="text-3xl text-center m-4"> Welcome, <%- user.username %> </h2>
+  </div>
+
+  <% projects.forEach( function (project){ %>
+    <div class="max-w-md mx-auto rounded-md shadow-md bg-white p-8 my-8" id="projectCard">
+      <h2 class="text-xl font-medium text-black mb-2" id="projectId"> Project ID: <%=project.id%> </h2>
+      <h2 class="font-medium text-sm text-purple-400 mb-4 uppercase tracking-wide" id="projectName"> <%=project.name%> </h2>
+      <p id="projectDescription"> <%=project.description%> </p>
+
+
+      <% if(project.members) { %>
+	<h2 class="font-medium text-sm text-purple-400 uppercase tracking-wide mt-4"> Members </h2>
+	<% project.members.forEach(function (mem) { %>
+	  <li> <%=mem.username%> </li>
+	<% }) %>
+      <% } %>
+
+      <% if(project.tasks) { %>
+	<h2 class="font-medium text-sm text-purple-400 uppercase tracking-wide mt-4"> Tasks </h2>
+	<% project.tasks.forEach(function (task) { %>
+	  <li> <%=task.name%> </li>
+	<% }) %>
+      <% } %>
+
+      <a href="project/<%=project.id%>"><h2 class="font-medium text-sm text-blue-700 uppercase tracking-wide mt-4"> More>>> </h2></a>
+
+    </div>
+  <% }); %>
+
+  <div class="max-w-md mx-auto">
+    <input class="w-full mx-auto bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 my-2 rounded-md" name="addProject" type="button" value="Create Project"/>
+  </div>
+
+
+  <form action="/auth/logout" class="max-w-md mx-auto">
+    <input class="w-full mx-auto bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md" name="logoutButton" type="submit" value="Logout"/>
+  </form>
+</div>

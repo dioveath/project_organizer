@@ -1,9 +1,9 @@
 function validateTodo(todo){
-  if(!(todo.name &&
-       todo.description &&
-       todo.status &&
-       todo.effort_hour &&
-       todo.todo_assigned &&
+  if(!(todo.name  != undefined &&
+       todo.description != undefined &&
+       todo.status != undefined &&
+       todo.effort_hour != undefined &&
+       todo.todo_assigned != undefined &&
        todo.task_id
       )){
     throw Error("All Todo fields are not set!");

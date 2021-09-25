@@ -15,7 +15,7 @@ conn.connect((error) => {
   if(error){
     console.log("Error: " + error.message);
   }
-  console.log("DB: " + conn.state);
+  console.log("DB(MySQL): " + conn.state);
 });
 
 

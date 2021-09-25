@@ -1,15 +1,15 @@
 function validateProject(proj){
-  // TODO: add more checks 
-  if(!(proj.name && 
-       proj.description &&
-       proj.status &&
-       proj.budget &&
-       proj.start_date &&
-       proj.end_date &&
-       proj.project_manager &&
-       proj.progress &&
-       proj.efforts_needed &&
-       proj.efforts_put
+  // TODO: Use sequealize for all database later.
+
+  if(!(proj.name != undefined &&
+       proj.description != undefined &&
+       proj.status != undefined &&
+       proj.budget != undefined &&
+       proj.start_date != undefined &&
+       proj.end_date != undefined &&
+       proj.project_manager != undefined &&
+       proj.efforts_needed != undefined &&
+       proj.efforts_put != undefined
       )){
     throw Error("All Proj fields are not set!");
   }

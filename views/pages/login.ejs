@@ -1,0 +1,23 @@
+<script src="../js/login.js" defer></script>
+<div class="container mx-auto p-2">
+  <div class="max-w-sm mx-auto bg-white px-5 py-10 rounded-sm shadow-md">
+    <h1 class="font-bold text-2xl text-center">Welcome to Charicha!</h1>
+    <form id="loginForm">
+      <div class="mt-5">
+	<label for="username">Username or Email</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="username" type="text" id="username" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="password">Password</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="password" type="password" id="password" value=""/>
+      </div>
+      <div class="w-full">
+	<p class="text-red-500 text-xs" id="error"></p>
+      </div>
+      <div class="mt-4 text-center">
+	<input class="w-full bg-purple-500 hover:bg-purple-700 hover:shadow-md text-white font-bold py-2 px-4 rounded-md transition" name="loginButton" type="submit" value="Login"/>
+      </div>
+    </form>
+    <a href="/auth/register"><span class="text-sm">Not member yet </span><span class="text-sm underline text-blue-500">Register Now!</span></a>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import Express from "express";
 
-import TodoDB from "../../services/todo_db.js";
-import { validateTodo } from "../../models/todo.js";
-import { verifyToken } from "../middlewares/verify_token.js";
+import TodoDB from "../../../services/todo_db.js";
+import { validateTodo } from "../../../models/todo.js";
+import { verifyToken } from "../../middlewares/verify_token.js";
 
 const router = new Router();
 const db = TodoDB.getInstance(); 
@@ -17,6 +17,23 @@ router.get("/id/:id", async (req, res) => {
   else {
     res.send({
       status: "No Todo with ID: " + req.params.id, 
+    });
+  }
+});
+
+
+// gets all todo of task with id :id 
+router.get("/task/:id", async (req, res) => {
+  var todos = await db.getTaskTodos(req.params.id);
+  if(todos) 
+    res.send({
+      todos: todos,
+      status: "Success",
+    });
+  else {
+    res.send({
+      status: "Fail",
+      message: "No Todos in Task with ID: " + req.params.id, 
     });
   }
 });
@@ -51,7 +68,29 @@ router.post("/add", async (req, res) => {
         });
       }
     });
+  } catch(error) {
+    res.send({
+      status: "Invalid", 
+      message: error.message,
+    });
+  }
+});
 
+
+router.post("/edit/:id", async (req, res) => {
+  try {
+    var todoId = await db.editTodo(req.params.id, req.body);
+      if(todoId) {
+        res.send({
+          todoId: todoId,
+          status: "Success"
+        });
+      } else {
+        res.send({
+          status: "Fail",
+          message: "Failed to edit todo!"
+        });
+      }
   } catch(error) {
     res.send({
       status: "Invalid", 

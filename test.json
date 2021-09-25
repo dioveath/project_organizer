@@ -1,12 +1,12 @@
 {
-  "name" : "Delta Project",
-  "description": " Top secret undercover Project",
-  "status": "ongoing",
-  "budget": 6000000,
+  "name" : "Umbrella Project",
+  "description": " We need to extract the DNA samples of superhuman.",
+  "status": "active",
+  "budget": 40000,
   "start_date": "2021-01-04",
   "end_date": "2022-02-28",
-  "project_manager": 1,
-  "progress": 10,
+  "project_manager": 5, // member.id
+  "progress": 0,
   "efforts_needed": 2000,
   "efforts_put": 100
 }
@@ -15,7 +15,7 @@
 {
   "name": "Infiltrate the Mansion",
   "description": "From our intelligent source we've found that Mr. X has been in the B123 Mansion in Chimera District. We need to infiltrate and get as much information as possible",
-  "status": "ongoing",
+  "status": "active",
   "project_id": 1,
   "start_date": "2021-06-10",
   "end_date": "2021-07-20",
@@ -27,8 +27,11 @@
 {
   "name": "Take down the Gaurd Silently",
   "description": "We have spotted a guard on patrol, blocking our way. We can take down him easily.",
-  "status": "ongoing",
+  "status": "active",
   "effort_hour": 3,
   "todo_assigned": 1,
   "task_id": 1
 }
+
+
+

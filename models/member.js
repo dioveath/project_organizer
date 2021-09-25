@@ -1,7 +1,9 @@
 function validateMember(member) {
+  // TODO: return object with error message and error status 
   if(!(member.username && 
        member.password &&
        member.level &&
+       member.email &&
        member.efforts_put
       )) {
     throw Error("All Member fields are not set!");

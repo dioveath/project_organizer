@@ -3,7 +3,7 @@ $.getScript("js/piechart.js");
 
 var ctx = document.getElementById('projChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{

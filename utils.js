@@ -10,7 +10,6 @@
  */
 
 let sqlToJsDate = function (d){
-  console.log(d.toString());
   return new Date(d.replace('T', ' ').replace('Z', ' '));
 };
 

@@ -1,0 +1,3 @@
+C-x C-f   expand HTML tag
+C-x C-n   switch selection matching tag
+C-c C-d d show tag mismatch

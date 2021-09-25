@@ -1,0 +1,36 @@
+<script> var user = <%- JSON.stringify(user) %>; </script>
+<script src="js/add_project.js" defer></script>
+
+<div class="container mx-auto p-2">
+  <div class="max-w-sm mx-auto bg-white px-5 py-10 rounded-sm shadow-md">
+    <h1 class="font-bold text-2xl text-center"> Create New Project </h1>
+    <form id="addProjectForm">
+      <div class="mt-5">
+	<label for="projectName"> Project Name </label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="projectName" type="text" id="projectName" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="projectDescription"> Project Description </label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="projectDescription" type="text" id="projectDescription" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="projectBudget"> Project Budget </label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="projectBudget" type="text" id="projectBudget" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="projectStart"> Project Start Date </label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="projectStart" type="date" id="projectStart" value=""/>	
+      </div>
+      <div class="mt-2">
+	<label for="projectEnd"> Project End Date </label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="projectEnd" type="date" id="projectEnd" value=""/>	
+      </div>
+      <div class="w-full">
+	<p class="text-red-500 text-xs" id="error"></p>
+      </div>
+      <div class="mt-4 mb-4 text-center">
+	<input class="w-full bg-purple-500 hover:bg-purple-700 hover:shadow-md text-white font-bold py-2 px-4 rounded-md transition" name="createProject" type="submit" value="Create Project"/>
+      </div>      
+    </form>
+  </div>
+</div>

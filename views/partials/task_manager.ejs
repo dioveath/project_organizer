@@ -1,0 +1,133 @@
+<script> var data = <%- JSON.stringify(data); %> </script>
+<script src="../../js/task_manager.js"></script>
+<style>
+
+
+ .custom-scrollbar::-webkit-scrollbar {
+   width: 0.4em;
+ }
+
+ .custom-scrollbar::-webkit-scrollbar-track {
+   background-color: #C7D2FE;
+ }
+
+ .custom-scrollbar::-webkit-scrollbar-thumb {
+   background-color: #4338CA;
+ }
+</style>
+
+
+<div class="w-full mx-auto sm:flex h-50 rounded-md shadow-lg py-2 px-6">
+
+  <!-- sidebar -->
+  <div class="sidebar sm:w-64 min-w-max">
+    <div class="flex justify-between items-center py-2 border-b-2 border-indigo-600">
+      <h6 class="text-indigo-600 font-bold uppercase"> All Tasks </h6>
+      <i class="fas fa-plus cursor-pointer text-2xl text-indigo-600 hover:text-indigo-800 p-2 transition-all" id="addNewTask"></i>
+
+    </div>
+    <ul class="task-list" id="taskList">
+    </ul>
+
+  </div>
+  <!-- sidebar -->
+
+
+  <div class="task flex-1 p-2" id="taskShow">
+
+    <div class="task-header bg-indigo-200 p-4 rounded-sm" id="#taskShow">
+
+      <div class="task-info" id="taskEditInfo" style="display:none;">
+	<div class="lg:flex my-2 justify-between items-center">
+	  <input type="text" class="text-xl font-bold tracking-wide mb-1 outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 overflow-x-hidden transition-all custom-scrollbar rounded-md px-2" id="taskEditName" placeholder="New Task Title">
+	  <div class="flex items-center my-2 bg-white rounded-md px-2 hover:bg-green-100 transition-all shadow-md" id="confirmNewTask">
+	    <i class="fas fa-check cursor-pointer text-xl text-green-600 hover:text-green-800 p-2 transition-all"></i>
+	    <p class="cursor-pointer rounded-md px-2 uppercase font-bold text-indigo-500"> Add Task </p>
+	  </div>
+	  <div class="flex items-center my-2 bg-white rounded-md px-2 hover:bg-green-100 transition-all shadow-md" id="cancelNewTask">
+	    <i class="fas fa-times cursor-pointer text-xl text-red-600 hover:text-green-800 p-2 transition-all"></i>
+	    <p class="cursor-pointer rounded-md px-2 uppercase font-bold text-indigo-500"> Cancel </p>
+	  </div>
+	</div>
+	<div class="w-4 h-4 bg-indigo-700"></div>
+	<div class="info md:flex items-center justify-between mt-2">
+	  <input type="date" class="text-md font-bold text-indigo-600 outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 overflow-x-hidden transition-all custom-scrollbar rounded-md px-2" id="taskEditStart" value="2021-06-21">
+	  <p class="text-md font-bold text-indigo-600" id="todoRemain"> 2 Todos Remaining </p>
+	  <input type="date" class="text-md font-bold text-indigo-600 outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 overflow-x-hidden transition-all custom-scrollbar rounded-md px-2" id="taskEditDeadline" value="2021-07-12"/>
+	</div>
+	<!-- <div class="w-full h-2 bg-gray-100 rounded-md shadow-sm mt-4">
+             <div class="h-2 rounded-md" role="progressbar" style="width: 0%" id="taskProgressBarEdit"></div>
+	     </div> -->
+
+	<textarea class="text-sm w-full my-2 h-20 resize-none bg-white rounded-md outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 overflow-x-hidden transition-all custom-scrollbar" type="text" id="taskEditDescription" placeholder="New Task Description"></textarea>
+      </div>
+
+      <div class="task-info" id="taskShowInfo">
+	<div class="flex justify-between">
+	  <h2 class="text-xl font-bold tracking-wide mb-1" id="taskName"> Infiltrate the Mansion </h2>
+	  <div class="task-controls">
+	    <i class="fas fa-edit cursor-pointer text-2xl text-blue-400 hover:text-blue-800 p-2 transition-all" id="taskEdit"></i>
+	    <i class="fas fa-trash cursor-pointer text-2xl text-red-600 hover:text-red-800 p-2 transition-all" id="taskDelete"></i>
+	  </div>
+	</div>
+	<div class="w-4 h-4 bg-indigo-700"></div>
+	<div class="info md:flex items-center justify-between">
+	  <p class="text-md font-bold text-indigo-600" id="taskStart">Start Date: 2021 Jul 21 </p>
+	  <p class="text-md font-bold text-indigo-600" id="todoRemain"> 2 Todos Remaining </p>
+	  <p class="text-md font-bold text-indigo-600" id="taskDeadline"> Deadline Date: 2021 Jul 12 </p>
+	</div>
+	<div class="w-full h-2 bg-gray-100 rounded-md shadow-sm mt-4">
+          <div class="h-2 rounded-md" role="progressbar" style="width: 0%" id="taskProgressBar"></div>
+	</div>
+	<p class="text-sm tracking-wide mt-2" id="taskDescription">
+	  Posuere lorem ipsum dolor sit amet. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat! Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi leo urna, molestie at elementum eu, facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum, odio eu feugiat pretium, nibh ipsum consequat nisl, vel pretium lectus quam id. Quisque sagittis, purus sit amet volutpat consequat, mauris nunc congue nisi, vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus.
+	</p>
+      </div>
+
+      <div class="task-members w-full">
+
+	<h3 class="text-md font-bold text-indigo-500 uppercase border-b-2 border-indigo-800 mt-4 mb-2">Members working on this task</h3>
+	<div class="task-member-list" id="taskMembersList">
+	  <!-- inserts task members through js -->
+	</div>
+
+	<ul class="text-sm text-indigo-700 font-bold my-2" style="display: none;" id="memberSelectListItem">
+	  <select name="members" id="membersSelect" class="w-32 text-sm font-bold text-indigo-600 px-2 rounded-md focus:outline-none border-2 border-indigo-100">
+	    <!-- inserts project members through js -->
+	  </select>
+	</ul>
+
+	<div class="flex justify-end items-center border-t-2 border-indigo-800 mt-4">
+	  <i class="fas fa-plus cursor-pointer text-xl text-indigo-600 hover:text-indigo-800 py-2 transition-all" id="taskMemberAdd"></i>
+	  <i class="fas fa-check cursor-pointer text-xl text-green-600 hover:text-green-800 ml-4 py-2 pb-2 transition-all" style="display: none;" id="taskMemberAddConfirm"></i>
+	  <i class="fas fa-times cursor-pointer text-xl text-red-600 hover:text-red-800 ml-4 py-2 pb-2 transition-all" style="display: none;" id="taskMemberCancel"></i>
+	</div>
+      </div>
+
+    </div>
+
+    <div class="card-body grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 transition:all" id="todoList">
+      <!-- todo will be added here js loadTodos() -->
+      <!-- <div class="w-full sm:max-w-xs bg-indigo-100 rounded-md p-4 my-4">
+           <div class="border-b-8 border-indigo-300 mb-2 rounded-sm"></div>
+           <h4 class="font-bold text-sm ${progressTextColor}" id="${task.id}">${todo.name}</h4>
+           <p class="text-sm h-20 overflow-hidden">${todo.description} Mattis rhoncus, urna neque viverra justo, nec ultrices dui sapien eget mi proin sed libero enim, sed faucibus. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et. </p>
+	   <div class="flex justify-between">
+	   <i class="fa fa-check cursor-poniter text-lg text-green-600 hover:text-green-800 p-2 transition-all"></i>
+	   <i class="fas fa-edit cursor-pointer text-lg text-indigo-600 hover:text-indigo-800 p-2 transition-all"></i>
+	   <i class="fa fa-trash cursor-pointer text-lg text-red-600 hover:text-red-800 p-2 ml-auto transition-all"></i>
+	   </div>
+	   </div> -->
+
+    </div> <!-- todo list -->
+
+    <div class="task-controls flex justify-end items-center bg-indigo-200 rounded-sm p-2" id="taskControls">
+      <p class="text-sm font-bold mr-4" id="taskMessage"></p>
+      <i class="fas fa-plus cursor-pointer text-3xl text-indigo-600 hover:text-indigo-800 p-2 transition-all" id="taskAddTodo"></i>
+      <i class="fas fa-check cursor-pointer text-3xl text-green-600 hover:text-green-800 p-2 transition-all" style="display: none;" id="taskAddTodoConfirm"></i>
+      <i class="fas fa-times cursor-pointer text-3xl text-red-600 hover:text-green-800 p-2 transition-all" style="display: none;" id="taskAddTodoCancel"></i>
+    </div>
+
+  </div> <!-- task-body -->
+
+</div>

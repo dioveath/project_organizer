@@ -1,0 +1,36 @@
+<script src="../js/register.js" defer></script>
+<div class="container mx-auto p-2">
+  <div class="max-w-sm mx-auto bg-white px-5 py-10 rounded-sm shadow-md">
+    <h1 class="font-bold text-2xl text-center">Welcome to Charicha!</h1>
+    <form id="loginForm">
+      <div class="mt-5">
+	<label for="">Username</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="username" type="text" id="username" value=""/>
+      </div>            
+      <div class="mt-5">
+	<label for="">Email</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="email" type="email" id="email" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="password">Password</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="password" type="password" id="password" value=""/>
+      </div>
+      <div class="mt-2">
+	<label for="confirmPassword">Confirm Password</label>
+	<input class="w-full p-2 border rounded-md border-gray-500 focus:outline-none" name="confirmPassword" type="password" id="confirmPassword" value=""/>
+      </div>      
+      <div class="w-full">
+	<p class="text-red-500 text-xs" id="error"></p>
+      </div>
+      <div class="flex mt-4">
+	<label class="flex items-center" for="">
+	  <input class="form-checkbox" name="" type="checkbox" value=""/>
+	  <span class="ml-2">I agree to the <span class="underline">Privacy Policy.</span></span>
+	</label>
+      </div>
+      <div class="mt-4 text-center">
+	<input class="w-full bg-blue-500 hover:bg-blue-700 hover:shadow-md text-white font-bold py-2 px-4 rounded-md transition" name="registerButton" type="submit" value="Register"/>
+      </div>
+    </form>
+  </div>
+</div>
